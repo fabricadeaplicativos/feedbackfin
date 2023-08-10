@@ -1,11 +1,12 @@
 {
-  "name": "feedbackfin",
-  "version": "1.0.3",
+  "name": "@fabapp/feedback",
+  "version": "0.0.1",
+  "private": false,
   "license": "Apache-2.0",
-  "homepage": "https://feedbackfin.com",
+  "homepage": "https://fabricadeaplicativos.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rowyio/feedbackfin.git"
+    "url": "git+https://github.com/fabricadeaplicativos/feedback.git"
   },
   "type": "module",
   "source": "src/index.ts",
@@ -21,9 +22,11 @@
     "dist/**/*"
   ],
   "scripts": {
-    "build": "node ./generate-form-html && microbundle --define process.env.NODE_ENV=production",
     "dev": "node ./generate-form-html && microbundle watch --define process.env.NODE_ENV=production",
-    "prepare": "husky install && node ./generate-form-html && git add src/form-html.ts && microbundle --define process.env.NODE_ENV=production"
+    "build": "node ./generate-form-html && microbundle --define process.env.NODE_ENV=production",
+    "prepare": "husky install && node ./generate-form-html && git add src/form-html.ts && microbundle --define process.env.NODE_ENV=production",
+    "login": "npm login",
+    "publish": "npm publish --access public"
   },
   "devDependencies": {
     "@floating-ui/dom": "^0.4.2",
@@ -36,5 +39,10 @@
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
-  }
+  },
+  "description": "**A tiny widget to collect feedback anywhere on your website. That’s it.**",
+  "bugs": {
+    "url": "https://github.com/fabricadeaplicativos/feedback/issues"
+  },
+  "author": "fabapp"
 }

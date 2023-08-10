@@ -87,9 +87,9 @@ function changeType(e: Event) {
 
   containerElement.setAttribute("data-feedback-type", value);
 
-  let placeholder = "I think…";
-  if (value === "issue") placeholder = "I’m having an issue with…";
-  else if (value === "idea") placeholder = "I’d like to see…";
+  let placeholder = "Eu penso…";
+  if (value === "issue") placeholder = "Estou tendo um problema com…";
+  else if (value === "idea") placeholder = "Eu gostaria de ver…";
 
   document
     .getElementById("feedbackfin__message")
@@ -101,15 +101,15 @@ function submit(e: Event) {
   const target = e.target as HTMLFormElement;
 
   if (!config.url) {
-    console.error("Feedback Fin: No URL provided");
+    console.error("Feedback Fin: Nenhum URL fornecido");
     if (!config.disableErrorAlert)
-      alert("Could not send feedback: No URL provided");
+      alert("Não foi possível enviar comentários: nenhum URL fornecido");
     return;
   }
 
   const submitElement = document.getElementById("feedbackfin__submit")!;
   submitElement.setAttribute("disabled", "");
-  submitElement.innerHTML = "Sending…";
+  submitElement.innerHTML = "Enviando...";
 
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
@@ -132,7 +132,7 @@ function submit(e: Event) {
     .catch((e) => {
       console.error("Feedback Fin:", e);
       if (!config.disableErrorAlert)
-        alert(`Could not send feedback: ${e.message}`);
+        alert(`Não foi possível enviar comentários: ${e.message}`);
     });
 
   return false;
